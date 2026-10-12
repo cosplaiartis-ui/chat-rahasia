@@ -1,0 +1,23 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=resizes-content">
+<title>Chat Rahasia</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#123">
+<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#0e1621;color:#eee;height:100dvh;display:flex;flex-direction:column}
+input,button,textarea{font-size:17px;padding:11px;border-radius:10px;border:0}button{cursor:pointer}.g{background:#2b8;color:#fff}.d{background:#253445;color:#cde}.wa{background:#25d366;color:#fff}
+.box{width:min(92vw,420px);margin:20px auto;display:flex;flex-direction:column;gap:8px}.hide{display:none!important}.s{color:#8aa;font-size:13px}
+#top{background:#17212b;padding:8px 12px}#conn{font-weight:bold;font-size:14px}#mem{font-size:13px;color:#8aa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#bar{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}#bar button{padding:6px 10px;font-size:13px}
+#log{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:6px}
+.m{max-width:80%;padding:7px 10px;border-radius:12px;background:#182533;align-self:flex-start;word-wrap:break-word;white-space:pre-wrap}.m.me{background:#2b5278;align-self:flex-end}
+.m .n{font-size:12px;font-weight:bold;color:#6cf}.m .t{font-size:11px;color:#8aa;text-align:right}.m img{max-width:100%;border-radius:8px;display:block;margin-top:4px}
+.sys{align-self:center;color:#8aa;font-size:12px}#typ{font-size:12px;color:#8aa;padding:0 12px;min-height:16px}
+#form{display:flex;gap:6px;padding:8px;background:#17212b}#txt{flex:1;resize:none;height:44px;background:#0e1621;color:#eee}#img{display:none}</style></head><body>
+<div id="home" class="box"><h2>💬 Chat Rahasia</h2><input id="name" placeholder="Nama panggilan" maxlength="20">
+ <div id="invite" class="hide box" style="margin:0"><p>Kamu diundang ke sebuah room terenkripsi. Masukkan nama lalu gabung.</p><button id="joinLink" class="g">Gabung Room</button></div>
+ <button id="mk" class="g">➕ Buat Room Baru</button>
+ <label class="s"><input type="checkbox" id="keep" checked> Simpan riwayat chat di perangkat ini</label>
+ <p class="s">Pesan dienkripsi AES-GCM di perangkat. Kunci hanya ada di link undangan (setelah #) yang tidak pernah dikirim ke server. Relay hanya menyimpan data terenkripsi.</p></div>
+<div id="chat" class="hide" style="display:flex;flex-direction:column;height:100dvh">
+ <div id="top"><div id="conn">🟡 Menyambung...</div><div id="mem"></div>
+  <div id="bar"><button id="copy" class="d">📋 Salin link</button><button id="wa" class="wa">WhatsApp</button><button id="sh" class="d">🔗 Bagikan</button><button id="clr" class="d">🗑️ Hapus riwayat lokal</button><button id="out" class="d">Keluar</button></div></div>
+ <div id="log"></div><div id="typ"></div>
+ <div id="form"><button id="pic" class="d" title="Kirim gambar">🖼️</button><input type="file" id="img" accept="image/*"><textarea id="txt" placeholder="Tulis pesan..." maxlength="4000"></textarea><button id="send" class="g">➤</button></div></div>
+<script src="nostr.js"></script><script src="crypto.js"></script><script src="net.js"></script><script src="app.js"></script></body></html>
